@@ -1,0 +1,17 @@
+$(function(){
+	$(".logIn").on("submit",function(e){
+		e.preventDefault();
+		$.ajax({
+			url:"server/server.php",
+			type:"post",
+			data:$(this).serialize()+"&login=true",
+			success:function(response)
+			{
+				if(response==1)
+	                	window.location="dashboard.php";
+                else
+                 	alert(response)       
+			}	   	
+		})
+	})
+})
